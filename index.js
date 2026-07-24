@@ -31,7 +31,7 @@ const hr = () =>
 
 const sectionHeading = (text) =>
 	new Paragraph({
-		spacing: { before: 120, after: 40 },
+		spacing: { before: 90, after: 30 },
 		border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: RULE } },
 		children: [
 			new TextRun({
@@ -47,7 +47,7 @@ const sectionHeading = (text) =>
 
 const jobHeader = (title, dates) =>
 	new Paragraph({
-		spacing: { before: 80, after: 10 },
+		spacing: { before: 60, after: 8 },
 		tabStops: [{ type: "right", position: convertInchesToTwip(6.5) }],
 		children: [
 			new TextRun({
@@ -69,7 +69,7 @@ const jobHeader = (title, dates) =>
 
 const subHeader = (text) =>
 	new Paragraph({
-		spacing: { after: 30 },
+		spacing: { after: 20 },
 		children: [
 			new TextRun({ text, italics: true, size: 20, color: ACCENT, font: FONT }),
 		],
@@ -78,7 +78,7 @@ const subHeader = (text) =>
 const bullet = (runsOrText) =>
 	new Paragraph({
 		numbering: { reference: "bullet-list", level: 0 },
-		spacing: { after: 30 },
+		spacing: { after: 20 },
 		children:
 			typeof runsOrText === "string"
 				? [
@@ -140,8 +140,8 @@ const doc = new Document({
 				page: {
 					size: { width: 12240, height: 15840 }, // US Letter
 					margin: {
-						top: convertInchesToTwip(0.3),
-						bottom: convertInchesToTwip(0.3),
+						top: convertInchesToTwip(0.18),
+						bottom: convertInchesToTwip(0.15),
 						left: convertInchesToTwip(0.7),
 						right: convertInchesToTwip(0.7),
 					},
@@ -151,7 +151,7 @@ const doc = new Document({
 				// Name
 				new Paragraph({
 					alignment: AlignmentType.CENTER,
-					spacing: { after: 30 },
+					spacing: { after: 20 },
 					children: [
 						new TextRun({
 							text: "HAMZA SYRAGE",
@@ -201,7 +201,7 @@ const doc = new Document({
 				// Summary
 				sectionHeading("Professional Summary"),
 				new Paragraph({
-					spacing: { after: 30 },
+					spacing: { after: 20 },
 					children: [
 						norm(
 							"Front-end developer with 2+ years of experience shipping production React and Next.js applications for enterprise clients. Specializes in multi-tenant SaaS architecture, real-time systems (WebRTC/WebSockets), and framework-agnostic embeddable widgets. Has taken features from Figma to production on platforms serving thousands of concurrent users, including a live electronic-voting system for a national professional association and a white-label LMS that reskins itself per client at runtime with zero rebuilds. Strong TypeScript fundamentals, comfortable owning architecture decisions independently, and focused on clean, accessible, well-tested UI.",
@@ -211,9 +211,34 @@ const doc = new Document({
 
 				// Experience
 				sectionHeading("Professional Experience"),
-				jobHeader("Frontend Developer - Lucidly", "May 2025 – Present"),
-				subHeader("Remote (UAE) - client work delivered for Axenso"),
-
+				new Paragraph({
+					spacing: { before: 60, after: 8 },
+					tabStops: [{ type: "right", position: convertInchesToTwip(6.5) }],
+					children: [
+						bold("Frontend Developer - "),
+						link("Lucidly", "https://lucidly.ae"),
+						new TextRun({
+							text: "\tMay 2025 – Present",
+							italics: true,
+							size: 20,
+							color: ACCENT,
+							font: FONT,
+						}),
+					],
+				}),
+				new Paragraph({
+					spacing: { after: 20 },
+					children: [
+						new TextRun({
+							text: "Remote (UAE) - client work delivered for ",
+							italics: true,
+							size: 20,
+							color: ACCENT,
+							font: FONT,
+						}),
+						link("Axenso", "https://axenso.com"),
+					],
+				}),
 				bullet([
 					bold("SIFO - Live meeting & e-voting platform: "),
 					norm(
@@ -242,7 +267,7 @@ const doc = new Document({
 				// Projects
 				sectionHeading("Personal Projects"),
 				new Paragraph({
-					spacing: { before: 80, after: 10 },
+					spacing: { before: 60, after: 8 },
 					tabStops: [{ type: "right", position: convertInchesToTwip(6.5) }],
 					children: [
 						bold("Portfolio Site - "),
@@ -253,7 +278,7 @@ const doc = new Document({
 					"Designed and built a full personal site and technical blog on Next.js 16, React 19, TypeScript, Tailwind CSS v4, and MDX, including a custom MDX component system (interactive diagrams, code file trees, callouts) and a library of 30+ hand-built micro-interaction demos using Motion.",
 				),
 				new Paragraph({
-					spacing: { before: 80, after: 10 },
+					spacing: { before: 60, after: 8 },
 					tabStops: [{ type: "right", position: convertInchesToTwip(6.5) }],
 					children: [
 						bold("3D Physics-Based Ping Pong Simulation - "),
@@ -265,6 +290,20 @@ const doc = new Document({
 				}),
 				bullet(
 					"Built a real-time table tennis simulator in Three.js and TypeScript from scratch: RK4 numerical integration, Magnus force and drag modeling, custom collision resolution, bot AI, full scoring/fault rules, and a gyroscope-driven mobile controller with live two-way sync to a debug UI.",
+				),
+				new Paragraph({
+					spacing: { before: 60, after: 8 },
+					tabStops: [{ type: "right", position: convertInchesToTwip(6.5) }],
+					children: [
+						bold("StayBay - "),
+						link(
+							"github.com/HamzaSyrage/staybay-backend",
+							"https://github.com/HamzaSyrage/staybay-backend",
+						),
+					],
+				}),
+				bullet(
+					"Laravel + Sanctum REST API for an Airbnb-style booking platform: escrow-style hold-balance wallet, a scheduled service that auto-transitions bookings by date and payment state, overlap-safe availability checks with date-range merging, and a dynamic query-filter system for search.",
 				),
 
 				// Skills
@@ -348,19 +387,45 @@ Packer.toBuffer(doc).then((buffer) => {
 		outputDir,
 		"Hamza-Syrage-Frontend-Engineer-Resume.docx",
 	);
+	const pdfPath = path.join(
+		outputDir,
+		"Hamza-Syrage-Frontend-Engineer-Resume.pdf",
+	);
+	const imagePrefix = path.join(
+		outputDir,
+		"Hamza-Syrage-Frontend-Engineer-Resume",
+	);
 
-	fs.writeFileSync(docxPath, buffer);
-	console.log("DOCX generated.");
+	Packer.toBuffer(doc).then((buffer) => {
+		try {
+			fs.writeFileSync(docxPath, buffer);
+			console.log("DOCX generated.");
+		} catch (err) {
+			console.error("Failed to write DOCX file.");
+			console.error(err.message);
+			return; // no docs no need to continue
+		}
 
-	try {
-		execSync(
-			`libreoffice --headless --convert-to pdf "${docxPath}" --outdir "${outputDir}"`,
-			{ stdio: "inherit" },
-		);
+		try {
+			execSync(
+				`libreoffice --headless --convert-to pdf "${docxPath}" --outdir "${outputDir}"`,
+				{ stdio: "inherit" },
+			);
+			console.log("PDF generated.");
+		} catch (err) {
+			console.error("Failed to convert DOCX to PDF.");
+			console.error(err.message);
+			return; // no pdf no image
+		}
 
-		console.log("PDF generated.");
-	} catch (err) {
-		console.error("Failed to convert DOCX to PDF.");
-		console.error(err.message);
-	}
+		try {
+			execSync(`pdftoppm -png -r 150 "${pdfPath}" "${imagePrefix}"`, {
+				stdio: "inherit",
+			});
+			console.log("Preview image generated.");
+		} catch (err) {
+			console.error("Failed to convert PDF to image.");
+			console.error(err.message);
+		}
+	});
 });
