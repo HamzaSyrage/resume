@@ -26,12 +26,12 @@ const FONT = "Calibri";
 const hr = () =>
 	new Paragraph({
 		border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: RULE } },
-		spacing: { after: 80 },
+		spacing: { after: 60 },
 	});
 
 const sectionHeading = (text) =>
 	new Paragraph({
-		spacing: { before: 90, after: 30 },
+		spacing: { before: 60, after: 20 },
 		border: { bottom: { style: BorderStyle.SINGLE, size: 4, color: RULE } },
 		children: [
 			new TextRun({
@@ -40,14 +40,13 @@ const sectionHeading = (text) =>
 				size: 21,
 				color: NAVY,
 				font: FONT,
-				characterSpacing: 20,
 			}),
 		],
 	});
 
 const jobHeader = (title, dates) =>
 	new Paragraph({
-		spacing: { before: 60, after: 8 },
+		spacing: { before: 40, after: 4 },
 		tabStops: [{ type: "right", position: convertInchesToTwip(6.5) }],
 		children: [
 			new TextRun({
@@ -78,7 +77,7 @@ const subHeader = (text) =>
 const bullet = (runsOrText) =>
 	new Paragraph({
 		numbering: { reference: "bullet-list", level: 0 },
-		spacing: { after: 20 },
+		spacing: { after: 14 },
 		children:
 			typeof runsOrText === "string"
 				? [
@@ -159,13 +158,12 @@ const doc = new Document({
 							size: 40,
 							color: NAVY,
 							font: FONT,
-							characterSpacing: 20,
 						}),
 					],
 				}),
 				new Paragraph({
 					alignment: AlignmentType.CENTER,
-					spacing: { after: 60 },
+					spacing: { after: 40 },
 					children: [
 						new TextRun({
 							text: "Front-End Engineer | React & Next.js Specialist",
@@ -177,7 +175,7 @@ const doc = new Document({
 				}),
 				new Paragraph({
 					alignment: AlignmentType.CENTER,
-					spacing: { after: 60 },
+					spacing: { after: 40 },
 					children: [
 						new TextRun({
 							text: "Damascus, Syria  |  +963 941 845 197  |  hamzasyrage@gmail.com",
@@ -201,7 +199,7 @@ const doc = new Document({
 				// Summary
 				sectionHeading("Professional Summary"),
 				new Paragraph({
-					spacing: { after: 20 },
+					spacing: { after: 10 },
 					children: [
 						norm(
 							"Front-end developer with 2+ years of experience shipping production React and Next.js applications for enterprise clients. Specializes in multi-tenant SaaS architecture, real-time systems (WebRTC/WebSockets), and framework-agnostic embeddable widgets. Has taken features from Figma to production on platforms serving thousands of concurrent users, including a live electronic-voting system for a national professional association and a white-label LMS that reskins itself per client at runtime with zero rebuilds. Strong TypeScript fundamentals, comfortable owning architecture decisions independently, and focused on clean, accessible, well-tested UI.",
@@ -212,13 +210,13 @@ const doc = new Document({
 				// Experience
 				sectionHeading("Professional Experience"),
 				new Paragraph({
-					spacing: { before: 60, after: 8 },
+					spacing: { before: 40, after: 4 },
 					tabStops: [{ type: "right", position: convertInchesToTwip(6.5) }],
 					children: [
 						bold("Frontend Developer - "),
 						link("Lucidly", "https://lucidly.ae"),
 						new TextRun({
-							text: "\tMay 2025 – Present",
+							text: "\tMay 2025 - Present",
 							italics: true,
 							size: 20,
 							color: ACCENT,
@@ -227,7 +225,7 @@ const doc = new Document({
 					],
 				}),
 				new Paragraph({
-					spacing: { after: 20 },
+					spacing: { after: 10 },
 					children: [
 						new TextRun({
 							text: "Remote (UAE) - client work delivered for ",
@@ -254,7 +252,7 @@ const doc = new Document({
 				bullet([
 					bold("RSS Feed Web Component - Embeddable widget: "),
 					norm(
-						"built a medical/scientific news aggregator end to end as a framework-agnostic native custom element (<rss-feed>), allowing any client site to embed live, per-client-themed content with a single script tag—no iframe or host build step required. Optimized the widget to a 277 KB minified bundle (93 KB gzipped) by avoiding external runtime dependencies and implementing required functionality with native Web APIs.",
+						"built a medical/scientific news aggregator end to end as a framework-agnostic native custom element (<rss-feed>), allowing any client site to embed live, per-client-themed content with a single script tag-no iframe or host build step required. Optimized the widget to a 277 KB minified bundle (93 KB gzipped) by avoiding external runtime dependencies and implementing required functionality with native Web APIs.",
 					),
 				]),
 				bullet([
@@ -267,8 +265,7 @@ const doc = new Document({
 				// Projects
 				sectionHeading("Personal Projects"),
 				new Paragraph({
-					spacing: { before: 60, after: 8 },
-					tabStops: [{ type: "right", position: convertInchesToTwip(6.5) }],
+					spacing: { before: 40, after: 8 },
 					children: [
 						bold("Portfolio Site - "),
 						link("hamza-syrage.is-a.dev", "https://hamza-syrage.is-a.dev"),
@@ -278,8 +275,7 @@ const doc = new Document({
 					"Designed and built a full personal site and technical blog on Next.js 16, React 19, TypeScript, Tailwind CSS v4, and MDX, including a custom MDX component system (interactive diagrams, code file trees, callouts) and a library of 30+ hand-built micro-interaction demos using Motion.",
 				),
 				new Paragraph({
-					spacing: { before: 60, after: 8 },
-					tabStops: [{ type: "right", position: convertInchesToTwip(6.5) }],
+					spacing: { before: 40, after: 8 },
 					children: [
 						bold("3D Physics-Based Ping Pong Simulation - "),
 						link(
@@ -292,8 +288,7 @@ const doc = new Document({
 					"Built a real-time table tennis simulator in Three.js and TypeScript from scratch: RK4 numerical integration, Magnus force and drag modeling, custom collision resolution, bot AI, full scoring/fault rules, and a gyroscope-driven mobile controller with live two-way sync to a debug UI.",
 				),
 				new Paragraph({
-					spacing: { before: 60, after: 8 },
-					tabStops: [{ type: "right", position: convertInchesToTwip(6.5) }],
+					spacing: { before: 40, after: 8 },
 					children: [
 						bold("StayBay - "),
 						link(
@@ -353,7 +348,7 @@ const doc = new Document({
 				// Education
 				sectionHeading("Education"),
 				new Paragraph({
-					spacing: { after: 20 },
+					spacing: { after: 10 },
 					children: [
 						new TextRun({
 							text: "Bachelor of Science in Information Technology",
