@@ -252,7 +252,7 @@ const doc = new Document({
 				bullet([
 					bold("RSS Feed Web Component - Embeddable widget: "),
 					norm(
-						"built a medical/scientific news aggregator end to end as a framework-agnostic native custom element (<rss-feed>), allowing any client site to embed live, per-client-themed content with a single script tag-no iframe or host build step required. Optimized the widget to a 277 KB minified bundle (93 KB gzipped) by avoiding external runtime dependencies and implementing required functionality with native Web APIs.",
+						"built a medical/scientific news aggregator end to end as a framework-agnostic native custom element (<rss-feed>), allowing any client site to embed live, per-client-themed content with a single script tag - no iframe or host build step required. Optimized the widget to a 277 KB minified bundle (93 KB gzipped) by avoiding external runtime dependencies and implementing required functionality with native Web APIs.",
 					),
 				]),
 				bullet([
