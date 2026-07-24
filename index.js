@@ -419,9 +419,18 @@ Packer.toBuffer(doc).then((buffer) => {
 		}
 
 		try {
-			execSync(`pdftoppm -png -r 150 "${pdfPath}" "${imagePrefix}"`, {
-				stdio: "inherit",
-			});
+			//? each page will get an image for it
+			// execSync(`pdftoppm -png -r 150 "${pdfPath}" "${imagePrefix}"`, {
+			// 	stdio: "inherit",
+			// });
+			//? here only one image file
+			//? i will make sure it only will has one page so one file is fine
+			execSync(
+				`pdftoppm -png -r 150 -singlefile "${pdfPath}" "${imagePrefix}"`,
+				{
+					stdio: "inherit",
+				},
+			);
 			console.log("Preview image generated.");
 		} catch (err) {
 			console.error("Failed to convert PDF to image.");
