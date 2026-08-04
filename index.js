@@ -255,12 +255,12 @@ const doc = new Document({
 						"built a medical/scientific news aggregator end to end as a framework-agnostic native custom element (<rss-feed>), allowing any client site to embed live, per-client-themed content with a single script tag - no iframe or host build step required. Optimized the widget to a 277 KB minified bundle (93 KB gzipped) by avoiding external runtime dependencies and implementing required functionality with native Web APIs.",
 					),
 				]),
-				bullet([
-					bold("Across all projects: "),
-					norm(
-						"state managed with Jotai + TanStack Query, Figma designs translated into pixel-perfect responsive components, code quality enforced via ESLint, Prettier, and lint-staged.",
-					),
-				]),
+				// bullet([
+				// 	bold("Across all projects: "),
+				// 	norm(
+				// 		"state managed with Jotai + TanStack Query, Figma designs translated into pixel-perfect responsive components, code quality enforced via ESLint, Prettier, and lint-staged.",
+				// 	),
+				// ]),
 
 				// Projects
 				sectionHeading("Personal Projects"),
