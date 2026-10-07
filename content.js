@@ -1,0 +1,166 @@
+module.exports = {
+	version: 1,
+
+	profile: {
+		name: "Hamza Syrage",
+		headline: "Front-End Engineer | React & Next.js Specialist",
+		location: "Damascus, Syria",
+		country: "Syria",
+		phone: "+963 941 845 197",
+		email: "hamzasyrage@gmail.com",
+		links: [
+			{
+				label: "github.com/HamzaSyrage",
+				url: "https://github.com/HamzaSyrage",
+			},
+			{ label: "hamza-syrage.is-a.dev", url: "https://hamza-syrage.is-a.dev" },
+			{
+				label: "linkedin.com/in/hamzasyrage",
+				url: "https://linkedin.com/in/hamzasyrage",
+			},
+		],
+	},
+
+	summary:
+		"Front-end developer with 2+ years of experience shipping production React and Next.js applications for enterprise clients. Specializes in multi-tenant SaaS architecture, real-time systems (WebRTC/WebSockets), and framework-agnostic embeddable widgets. Has taken features from Figma to production on platforms serving thousands of concurrent users, including a live electronic-voting system for a national professional association and a white-label LMS that reskins itself per client at runtime with zero rebuilds. Strong TypeScript fundamentals, comfortable owning architecture decisions independently, and focused on clean, accessible, well-tested UI.",
+
+	experience: [
+		{
+			role: "Frontend Developer",
+			company: "Lucidly",
+			companyUrl: "https://lucidly.ae",
+			location: "Remote (UAE)",
+			note: "Remote (UAE) - client work delivered for Axenso",
+			noteUrl: "https://axenso.com",
+			noteLabel: "Axenso",
+			startDate: "2025-05",
+			endDate: null,
+			datesLabel: "May 2025 - Present",
+			highlights: [
+				{
+					label: "SIFO - Live meeting & e-voting platform",
+					text: "built the frontend for a congress meeting and formal-election platform for a national pharmacy association, supporting meetings with over 10,000 concurrent attendees. Verified frontend scalability through automated Puppeteer load tests. Designed a dual real-time transport architecture separating WebRTC media (SFU-based) from WebSocket application state, ensuring chat, hand-raise, permissions, and voting remained reliable even when participants experienced media connection issues.",
+				},
+				{
+					label: "Cube26 - Multi-tenant SaaS LMS",
+					text: "built the learner-facing app for a white-label training platform serving multiple client organizations from one codebase. Implemented runtime theming (colors, logos, tag palettes resolved per subdomain from a branding API, no rebuild required) and a unified progress-tracking contract across seven content formats (video, audio, PDF, text, spreadsheets, zip archives, image galleries).",
+				},
+				{
+					label: "RSS Feed Web Component - Embeddable widget",
+					text: "built a medical/scientific news aggregator end to end as a framework-agnostic native custom element (<rss-feed>), allowing any client site to embed live, per-client-themed content with a single script tag - no iframe or host build step required. Optimized the widget to a 277 KB minified bundle (93 KB gzipped) by avoiding external runtime dependencies and implementing required functionality with native Web APIs.",
+				},
+				{
+					label: "Across all projects",
+					text: "state managed with Jotai + TanStack Query, Figma designs translated into pixel-perfect responsive components, code quality enforced via ESLint, Prettier, and lint-staged.",
+				},
+			],
+		},
+	],
+
+	projects: [
+		{
+			title: "Portfolio Site",
+			label: "hamza-syrage.is-a.dev",
+			url: "https://hamza-syrage.is-a.dev",
+			description:
+				"Designed and built a full personal site and technical blog on Next.js 16, React 19, TypeScript, Tailwind CSS v4, and MDX, including a custom MDX component system (interactive diagrams, code file trees, callouts) and a library of 30+ hand-built micro-interaction demos using Motion.",
+		},
+		{
+			title: "3D Physics-Based Ping Pong Simulation",
+			label: "pinging-and-ponging.vercel.app",
+			url: "https://pinging-and-ponging.vercel.app",
+			description:
+				"Built a real-time table tennis simulator in Three.js and TypeScript from scratch: RK4 numerical integration, Magnus force and drag modeling, custom collision resolution, bot AI, full scoring/fault rules, and a gyroscope-driven mobile controller with live two-way sync to a debug UI.",
+		},
+		{
+			title: "StayBay",
+			label: "github.com/HamzaSyrage/staybay-backend",
+			url: "https://github.com/HamzaSyrage/staybay-backend",
+			description:
+				"Laravel + Sanctum REST API for an Airbnb-style booking platform: escrow-style hold-balance wallet, a scheduled service that auto-transitions bookings by date and payment state, overlap-safe availability checks with date-range merging, and a dynamic query-filter system for search.",
+		},
+	],
+
+	skills: [
+		{
+			group: "Frontend",
+			items: [
+				"JavaScript (ES6+)",
+				"TypeScript",
+				"React",
+				"Next.js",
+				"HTML5",
+				"CSS3",
+			],
+		},
+		{
+			group: "Real-Time & Networking",
+			items: [
+				"WebRTC",
+				"WebSockets",
+				"RESTful APIs",
+				"Web Components / Custom Elements",
+			],
+		},
+		{
+			group: "State, Data & Forms",
+			items: [
+				"TanStack Query",
+				"Jotai",
+				"Redux Toolkit",
+				"Zustand",
+				"React Hook Form",
+				"Zod",
+			],
+		},
+		{
+			group: "UI & Styling",
+			items: [
+				"Tailwind CSS",
+				"Radix UI",
+				"Shadcn/ui",
+				"Chakra UI",
+				"Mantine",
+				"Motion/Framer Motion",
+				"Sass",
+			],
+		},
+		{
+			group: "3D / Graphics",
+			items: ["Three.js", "WebGL", "Godot", "GDScript", "C#"],
+		},
+		{
+			group: "Testing & Monitoring",
+			items: ["Vitest", "Playwright", "puppeteer", "Sentry"],
+		},
+		{
+			group: "DevOps & CI/CD",
+			items: ["Linux", "Docker", "Vercel", "AWS", "Nginx"],
+		},
+		{
+			group: "Backend",
+			items: ["Node.js", "Express.js", "PHP", "Laravel"],
+		},
+		{
+			group: "Tooling & Practices",
+			items: [
+				"Git",
+				"Figma",
+				"Postman",
+				"Accessibility (A11y)",
+				"SEO",
+				"Responsive Design",
+			],
+		},
+	],
+
+	education: [
+		{
+			degree: "Bachelor of Science in Information Technology",
+			school: "Damascus University",
+			note: "Damascus University - Expected Graduation: 2028",
+			expected: true,
+			graduationYear: 2028,
+		},
+	],
+};
